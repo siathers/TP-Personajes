@@ -13,7 +13,7 @@ export const getById = async (id) => {
 }
 export const create = async (personaje) => {
     const connection = await sql.connect(configDB);
-    const result = await conn.request().input('pNombre', sql.VarChar, personaje.Nombre).input('pimagen', sql.Bit, personaje.Imagen).input('pEdad', sql.Float, personaje.Edad).input('pPeso', sql.VarChar, personaje.Peso).query('INSERT INTO Pizzas (Nombre, Imagen, Edad, Peso) VALUES (@pNombre, @pLibreGluten, @pImporte, @pDescripcion)');
+    const result = await conn.request().input('pNombre', sql.VarChar, personaje.Nombre).input('pimagen', sql.string, personaje.Imagen).input('pEdad', sql.int, personaje.Edad).input('pPeso', sql.Int, personaje.Peso).input('pHistoria', sql.VarChar, personaje.Historia).input('pFK_Peliserie', sql.Int, personaje.FK_Peliserie).query('INSERT INTO Pizzas (Nombre, Imagen, Edad, Peso) VALUES (@pNombre, @pLibreGluten, @pImporte, @pDescripcion)');
     return result.recordset;
 }
 export const update = async (pizza, id) => {

@@ -6,23 +6,22 @@ const port = 5000
 app.use(express.json());
 
 Router.get('/movies/:id', async(req, res)=>{
-  let status = 200;
-  const id = req.params.id;
-  if (id<0) status=400
-  else
-  {
+let status = 200;
+const id = req.params.id;
+if (id<0) status=400
+else
+{
     const Peliserie = await getPeliserieById(req.params.id)
-  }
-  res.status(status).send(pizzas);
+}
+res.status(status).send(pizzas);
 })
-
 app.get('/movies', (req, res) => {
     const Peliserie = getAllPeliseries();
     res.status(200).send(Peliserie);
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+console.log(`Example app listening on port ${port}`)
 })
 
 /*app.put("/{id}", async (req, res) =>
@@ -56,7 +55,7 @@ app.delete("/{id}", (req, res) =>
     }
     else
     {
-      const pizza = deleteById(req.params.id)
+    const pizza = deleteById(req.params.id)
     }
     res.status(status).send(pizzas);
 });

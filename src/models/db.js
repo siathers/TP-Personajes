@@ -1,12 +1,12 @@
-const config = {
+const configdb = {
     user: 'Personajes',
     password: 'Personajes',
     server: 'A-PHZ2-CEO-005',
-    database: 'DAI-Pizzas',
+    database: 'TP-Personajes',
     options: {
         trustServerCertificate: true,
         trustedConnection: true,
     }
 }
 
-export default config;
+export default configdb;

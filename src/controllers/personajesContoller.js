@@ -1,6 +1,7 @@
 import { router } from "passport-jwt";
 import passport from "passport";
 import Personaje from "/models/personajes";
+import { createCharacter } from "../services/personajesService";
 
 router.get('/characters', async(req, res) => {
     const personajes = await getAllCharacters();
@@ -24,13 +25,20 @@ router.get('/characters/:id', async(req, res) => {
     }
 });
 router.post('/characters/:id', async(req, res) => {
-    const personajes = await deleteCharacterById(id);
-    if(id>0){
-        res.status(200).send(personajes);
+    let status = 201;
+    const personaje = new Personaje();
+    personaje.Nombre = req.body.Nombre;
+    personaje.Imagen = req.body.Imagen;
+    personaje.Edad = req.body.Edad;
+    personaje.Peso = req.body.Peso;
+    personaje.Historia = req.body.Historia;
+    personaje.FK_Pelicula = req.body.FK_Pelicula;
+    const newPersonaje = await createCharacter(personaje);
+    if(newPersonaje==null){
+        status = 400;
     }
-    else if(id<=0){
-        res.status(404).send(personajes);
-    }
+    res.status(status).send(pizzaCreada);
+
 });
 router.delete('/characters/:id', async(req, res) => {
     if(id>0){

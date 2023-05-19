@@ -1,7 +1,7 @@
 import { router } from "passport-jwt";
 import passport from "passport";
 import Personaje from "/models/personajes";
-import { createCharacter } from "../services/personajesService";
+import { createCharacter, updateCharacter } from "../services/personajesService";
 
 router.get('/characters', async(req, res) => {
     const personajes = await getAllCharacters();
@@ -71,7 +71,7 @@ app.put("/{id}", async (req, res) =>
     personaje.Peso = req.body.Peso;
     personaje.Historia = req.body.Historia;
     personaje.FK_Pelicula = req.body.FK_Pelicula;
-    const changed = await update(personaje, id);
+    const changed = await updateCharacter(personaje, id);
     if(changed==null){
         status = 404;
     }

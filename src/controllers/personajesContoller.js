@@ -87,9 +87,19 @@ app.get("/characters", async (req, res) =>
     personaje.Nombre = req.body.Nombre;
     personaje.Edad = req.body.Edad;
     personaje.Movies = req.body.Movies;
-    const changed = await updateCharacter(personaje, id);
-    if(changed==null){
-        status = 404;
-    }
+    
     res.status(status)
 });
+
+/* 
+    select *
+    from personajes p
+    inner join personajexpeliserie ps
+    on p.id_personaje = ps.fk_personaje
+
+    where 
+    p.nombre = @nombre
+    p.edad = @edad
+    p.pseo = @peso
+    ps.fk_peliserie = @idpeliserie
+*/

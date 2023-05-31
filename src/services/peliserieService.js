@@ -27,5 +27,5 @@ export const deletePeliSerieById = async (id) => {
 }
 export const getAllCharasFromPeliserie = async (id) => {
     const connection = await sql.connect(configDB);
-    const results = await conn.request().input('pId_PeliSerie', sql.Int, id).query('SELECT * FROM Personaje INNER JOIN PeliSerie ON PeliSerie.Id_PeliSerie = Personaje.FK_PeliSerie WHERE Id_PeliSerie==@idPeliSerie');
+    const results = await conn.request().input('pId_PeliSerie', sql.Int, id).query('select * from personaje pj inner join personajexpeliserie ps on pp.fk_personaje = pj.id_personaje inner join personaje pj on p.id_peliserie = pp.fk_peliserie where p.id_peliserie = @pIdPeliSerie');
 }

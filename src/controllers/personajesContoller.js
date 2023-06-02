@@ -1,7 +1,7 @@
 import { router } from "passport-jwt";
 import passport from "passport";
 import Personaje from "/models/personajes";
-import { createCharacter, updateCharacter } from "../services/personajesService";
+import { createCharacter, getAllCharacters, updateCharacter } from "../services/personajesService";
 
 router.get('/characters', async(req, res) => {
     const personajes = await getAllCharacters();
@@ -76,13 +76,22 @@ app.put("/{id}", async (req, res) =>
     res.status(status)
 });
 
-app.get("/characters", async (req, res) =>
+app.get("/characters/?name=nombre&age=edad&peso=weight&movies=idMovie", async (req, res) =>
 {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const nameValue = urlParams.get('nombre');
+    const ageValue = urlParams.get('edad');
+    const pesoValue = urlParams.get('peso');
+    const movieValue = urlParams.get('idMovie');
+    const personaje = await getAllCharacters()
     let status = 200;
     if(req.params.id < 0)
     {
         status = 400;
     }
+
+
     const id = req.params.id;
     personaje.Nombre = req.body.Nombre;
     personaje.Edad = req.body.Edad;

@@ -84,19 +84,8 @@ app.get("/characters/?name=nombre&age=edad&peso=weight&movies=idMovie", async (r
     const ageValue = urlParams.get('edad');
     const pesoValue = urlParams.get('peso');
     const movieValue = urlParams.get('idMovie');
-    const personaje = await getAllCharacters()
+    const personaje = await getCharacterSearch(nameValue,ageValue,pesoValue,movieValue)
     let status = 200;
-    if(req.params.id < 0)
-    {
-        status = 400;
-    }
-
-
-    const id = req.params.id;
-    personaje.Nombre = req.body.Nombre;
-    personaje.Edad = req.body.Edad;
-    personaje.Movies = req.body.Movies;
-    
     res.status(status)
 });
 

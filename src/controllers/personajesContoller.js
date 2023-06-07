@@ -76,28 +76,18 @@ app.put("/{id}", async (req, res) =>
     res.status(status)
 });
 
-app.get("/characters/?name=nombre&age=edad&peso=weight&movies=idMovie", async (req, res) =>
-{
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const nameValue = urlParams.get('nombre');
-    const ageValue = urlParams.get('edad');
-    const pesoValue = urlParams.get('peso');
-    const movieValue = urlParams.get('idMovie');
-    const personaje = await getCharacterSearch(nameValue,ageValue,pesoValue,movieValue)
-    let status = 200;
-    res.status(status)
-});
-
-/* 
-    select *
-    from personajes p
-    inner join personajexpeliserie ps
-    on p.id_personaje = ps.fk_personaje
-
-    where 
-    p.nombre = @nombre
-    p.edad = @edad
-    p.pseo = @peso
-    ps.fk_peliserie = @idpeliserie
-*/
+router.get ('/characters', async(req, res)=>{
+    const personaje         = new Personaje();
+    personaje.Nombre        = req.query.name;
+    personaje.Edad          = req.query.age;
+    personaje.Peso          = req.query.weight;
+    personaje.IdPelicula    = req.query.idMovie;
+    let personajes;
+    if(personaje.Nombre || personaje.Edad || personaje.Peso || personaje.IdPelicula){
+        personajes = await filteredCharacters(personaje);
+    }
+    else{
+        personajes = await getAllCharacters(personaje);
+    }
+    res.status(200).send(personajes);
+})

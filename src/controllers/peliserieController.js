@@ -7,9 +7,9 @@ const router = Router();
 
 router.get ('/movies', async(req, res)=>{
     let status = 200;
-    const peliserie         = new PeliSerie()
-    peliserie.Nombre        = req.query.name;
-    peliserie.Orden         = req.query.order.toUpperCase();
+    const peliserie = new PeliSerie()
+    peliserie.Nombre = req.query.name;
+    peliserie.Orden = req.query.order.toUpperCase();
     let peliseries;
     if(peliserie.Nombre || peliserie.Orden){
         if(peliserie.Orden != "ASC" && peliserie.Orden != "DESC"){
@@ -39,11 +39,11 @@ router.get ('/movies/:id', async(req, res)=>{
 router.post ('/movies', async(req, res)=>{
     let status = 201;
     let creado;
-    const peliserie              = new PeliSerie();
-    peliserie.Imagen             = req.body.Imagen;
-    peliserie.Titulo             = req.body.Titulo;
-    peliserie.FechaCreacion      = req.body.FechaCreacion;
-    peliserie.Calificacion       = req.body.Calificacion;
+    const peliserie = new PeliSerie();
+    peliserie.Imagen = req.body.Imagen;
+    peliserie.Titulo = req.body.Titulo;
+    peliserie.FechaCreacion = req.body.FechaCreacion;
+    peliserie.Calificacion = req.body.Calificacion;
     if(peliserie.Calificacion < 0 || peliserie.Calificacion > 5){
         status = 400;
     }
@@ -57,12 +57,12 @@ router.post ('/movies', async(req, res)=>{
 })
 router.put ('/movies/:id', async(req, res)=>{
     let status = 200;
-    const id                     = req.params.id;
-    const peliserie              = new PeliSerie();
-    peliserie.Imagen             = req.body.Imagen;
-    peliserie.Titulo             = req.body.Titulo;
-    peliserie.FechaCreacion      = req.body.FechaCreacion;
-    peliserie.Calificacion       = req.body.Calificacion;
+    const id = req.params.id;
+    const peliserie = new PeliSerie();
+    peliserie.Imagen = req.body.Imagen;
+    peliserie.Titulo = req.body.Titulo;
+    peliserie.FechaCreacion = req.body.FechaCreacion;
+    peliserie.Calificacion = req.body.Calificacion;
 
     const cambiado      = await updatePeliSerie(peliserie, id);
     if(req.params.id < 0 || cambiado == null){
@@ -75,7 +75,7 @@ router.delete ('/movies/:id', async(req, res)=>{
     if(req.params.id < 0){
         status = 400;
     }
-    const idBorrado     = await deletePeliSerieById(req.params.id);
+    const idBorrado = await deletePeliSerieById(req.params.id);
     res.status(status).send(idBorrado);
 })
 

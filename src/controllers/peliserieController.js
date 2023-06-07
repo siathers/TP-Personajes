@@ -7,7 +7,7 @@ const router = Router();
 
 router.get ('/movies', async(req, res)=>{
     let status = 200;
-    const pelicula         = new PeliSerie()
+    const peliserie         = new PeliSerie()
     peliserie.Nombre        = req.query.name;
     peliserie.Orden         = req.query.order.toUpperCase();
     let peliseries;

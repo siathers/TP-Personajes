@@ -8,47 +8,47 @@ const router = Router();
 router.get ('/movies', async(req, res)=>{
     let status = 200;
     const pelicula         = new PeliSerie()
-    pelicula.Nombre        = req.query.name;
-    pelicula.Orden         = req.query.order.toUpperCase();
-    let peliculas;
-    if(pelicula.Nombre || pelicula.Orden){
-        if(pelicula.Orden != "ASC" && pelicula.Orden != "DESC"){
+    peliserie.Nombre        = req.query.name;
+    peliserie.Orden         = req.query.order.toUpperCase();
+    let peliseries;
+    if(peliserie.Nombre || peliserie.Orden){
+        if(peliserie.Orden != "ASC" && peliserie.Orden != "DESC"){
             status = 400;
         }
         else{
-            peliculas = await filteredMovies(pelicula);
+            peliseries = await filteredMovies(peliserie);
         }
     }
     else{
-        peliculas = await getAllPeliseries();
+        peliseries = await getAllPeliSeries();
     }
-    res.status(status).send(peliculas);
+    res.status(status).send(peliserie);
 })
 router.get ('/movies/:id', async(req, res)=>{ 
     let status = 200;
     const id               = req.params.id;
-    const pelicula         = await getDetailedMovie(id);
-    if(pelicula == null){
+    const peliserie         = await getPeliSerieById(id);
+    if(peliserie == null){
         status = 404;
     }
     if (id < 0){
         status = 400;
     }
-    res.status(status).send(pelicula);
+    res.status(status).send(peliserie);
 })
 router.post ('/movies', async(req, res)=>{
     let status = 201;
     let creado;
-    const pelicula              = new Pelicula();
-    pelicula.Imagen             = req.body.Imagen;
-    pelicula.Titulo             = req.body.Titulo;
-    pelicula.FechaCreacion      = req.body.FechaCreacion;
-    pelicula.Calificacion       = req.body.Calificacion;
-    if(pelicula.Calificacion < 0 || pelicula.Calificacion > 5){
+    const peliserie              = new PeliSerie();
+    peliserie.Imagen             = req.body.Imagen;
+    peliserie.Titulo             = req.body.Titulo;
+    peliserie.FechaCreacion      = req.body.FechaCreacion;
+    peliserie.Calificacion       = req.body.Calificacion;
+    if(peliserie.Calificacion < 0 || peliserie.Calificacion > 5){
         status = 400;
     }
     else{
-        creado = await createMovie(pelicula);
+        creado = await createPeliSerie(peliserie);
         if(creado==null){
             status = 400;
         }
@@ -57,14 +57,14 @@ router.post ('/movies', async(req, res)=>{
 })
 router.put ('/movies/:id', async(req, res)=>{
     let status = 200;
-    const id                    = req.params.id;
-    const pelicula              = new PeliSerie();
-    pelicula.Imagen             = req.body.Imagen;
-    pelicula.Titulo             = req.body.Titulo;
-    pelicula.FechaCreacion      = req.body.FechaCreacion;
-    pelicula.Calificacion       = req.body.Calificacion;
+    const id                     = req.params.id;
+    const peliserie              = new PeliSerie();
+    peliserie.Imagen             = req.body.Imagen;
+    peliserie.Titulo             = req.body.Titulo;
+    peliserie.FechaCreacion      = req.body.FechaCreacion;
+    peliserie.Calificacion       = req.body.Calificacion;
 
-    const cambiado      = await updatePeliSerie(pelicula, id);
+    const cambiado      = await updatePeliSerie(peliserie, id);
     if(req.params.id < 0 || cambiado == null){
         status = 400;
     }
@@ -75,7 +75,7 @@ router.delete ('/movies/:id', async(req, res)=>{
     if(req.params.id < 0){
         status = 400;
     }
-    const idBorrado     = await deleteMovie(req.params.id);
+    const idBorrado     = await deletePeliSerieById(req.params.id);
     res.status(status).send(idBorrado);
 })
 

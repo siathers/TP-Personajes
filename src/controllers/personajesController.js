@@ -1,7 +1,8 @@
-import { router } from "passport-jwt";
+import { Router } from "express";
 import passport from "passport";
-import Personaje from "/models/personajes";
-import { createCharacter, getAllCharacters, updateCharacter } from "../services/personajesService";
+import Personaje from "../models/personajes.js";
+import { createCharacter, getAllCharacters, updateCharacter } from "../services/personajesService.js";
+const router= new Router;
 
 router.get('/characters', async(req, res) => {
     const personajes = await getAllCharacters();
@@ -56,7 +57,7 @@ router.delete('/characters/:id', async(req, res) => {
         res.status(404).send();
     }
 })
-app.put("/{id}", async (req, res) =>
+router.put("/{id}", async (req, res) =>
 {
     let status = 200;
     if(req.params.id < 0)
@@ -91,3 +92,4 @@ router.get ('/characters', async(req, res)=>{
     }
     res.status(200).send(personajes);
 })
+export default router;

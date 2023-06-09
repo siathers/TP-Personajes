@@ -1,10 +1,9 @@
-import { router } from "passport-jwt";
+import { Router } from "express";
 import passport from "passport";
-import PeliSerie from "/models/peliserie";
-import { createPeliSerie, getAllPeliSeries, updatePeliSerie, getPeliSerieById, deletePeliSerieById} from "../services/peliseriesService";
+import PeliSerie from "../models/peliserie.js";
+import { createPeliSerie, getAllPeliSeries, updatePeliSerie, getPeliSerieById, deletePeliSerieById} from "../services/peliserieService.js";
 
-const router = Router();
-
+const router= new Router
 router.get ('/movies', async(req, res)=>{
     let status = 200;
     const peliserie = new PeliSerie()
@@ -78,5 +77,4 @@ router.delete ('/movies/:id', async(req, res)=>{
     const idBorrado = await deletePeliSerieById(req.params.id);
     res.status(status).send(idBorrado);
 })
-
 export default router;

@@ -1,25 +1,15 @@
-import express, { Router } from "express";
-import PeliSerie from "/models/peliserie";
-import { createPeliSerie, getAllPeliSeries, updatePeliSerie, getPeliSerieById, deletePeliSerieById} from "../services/peliseriesService";
-import Personaje from "/models/personajes";
-import { createCharacter, getAllCharacters, updateCharacter } from "../services/personajesService";
+import express from "express";
+import passport from "passport";
+import personajesController from "./controllers/personajesController.js";
+import peliculasController from "./controllers/peliserieController.js";
 const app = express()
 const port = 5000
 app.use(express.json());
 
-Router.get('/movies/:id', async(req, res)=>{
-let status = 200;
-const id = req.params.id;
-if (id<0) status=400
-else
-{
-    const Peliserie = await getPeliSerieById(req.params.id)
-}
-res.status(status).send(pizzas);
-})
+
 app.get('/movies', (req, res) => {
-    const Peliserie = getAllPeliSeries();
-    res.status(200).send(Peliserie);
+    const peliserie = getAllPeliSeries();
+    res.status(200).send(peliserie);
 })
 
 app.listen(port, () => {

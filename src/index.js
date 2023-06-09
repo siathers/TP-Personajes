@@ -1,6 +1,8 @@
 import express, { Router } from "express";
-import pizza from "../src/models/pizza.js";
-import {getAll,getById,create,update,deleteById} from './services/pizzaService.js';
+import PeliSerie from "/models/peliserie";
+import { createPeliSerie, getAllPeliSeries, updatePeliSerie, getPeliSerieById, deletePeliSerieById} from "../services/peliseriesService";
+import Personaje from "/models/personajes";
+import { createCharacter, getAllCharacters, updateCharacter } from "../services/personajesService";
 const app = express()
 const port = 5000
 app.use(express.json());
@@ -11,12 +13,12 @@ const id = req.params.id;
 if (id<0) status=400
 else
 {
-    const Peliserie = await getPeliserieById(req.params.id)
+    const Peliserie = await getPeliSerieById(req.params.id)
 }
 res.status(status).send(pizzas);
 })
 app.get('/movies', (req, res) => {
-    const Peliserie = getAllPeliseries();
+    const Peliserie = getAllPeliSeries();
     res.status(200).send(Peliserie);
 })
 

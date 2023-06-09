@@ -8,7 +8,7 @@ export const getAllPeliSeries = async () => {
 }
 export const getPeliSerieById = async (id) => {
     const connection = await sql.connect(configDB);
-    const result = await conn.request().input('pId_PeliSerie', sql.Int, id).query('SELECT * FROM PeliSerie where Id_PeliSerie = @pId_PeliSerie');
+    const result = await conn.request().input('pId_PeliSerie', sql.Int, id).query('SELECT * FROM PeliSerie PS JOIN Personajexpeliserie pxp On ps.id_peliserie=pxp-fk_peliserie JOIN personaje pj On pj.id_personaje=pxp.fk_personaje Where ps.id_peliserie = @id_peliserie');
     return result.recordset;
 }
 export const createPeliSerie = async (peliserie) => {
@@ -24,8 +24,4 @@ export const updatePeliSerie = async (peliserie, id) => {
 export const deletePeliSerieById = async (id) => {
     const connection = await sql.connect(configDB);
     const result = await conn.request().input('pId_PeliSerie', sql.Int, id).query('DELETE FROM PeliSerie where Id_PeliSerie = @pId_PeliSerie');
-}
-export const getAllCharasFromPeliserie = async (id) => {
-    const connection = await sql.connect(configDB);
-    const results = await conn.request().input('pId_PeliSerie', sql.Int, id).query('select * from personaje pj inner join personajexpeliserie ps on pp.fk_personaje = pj.id_personaje inner join personaje pj on p.id_peliserie = pp.fk_peliserie where p.id_peliserie = @pIdPeliSerie');
 }

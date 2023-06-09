@@ -1,4 +1,4 @@
-export default class Peliserie {
+export default class PeliSerie {
     Id_PeliSerie;
     Imagen;
     Titulo;

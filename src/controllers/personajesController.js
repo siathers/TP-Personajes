@@ -33,7 +33,7 @@ router.post('/characters', async(req, res) => {
     personaje.Edad = req.body.Edad;
     personaje.Peso = req.body.Peso;
     personaje.Historia = req.body.Historia;
-    personaje.FK_Peliserie = req.body.FK_Peliserie
+    personaje.FK_Peliserie = req.body.FK_Peliserie;
     const newPersonaje = await createCharacter(personaje);
     if(newPersonaje==null){
         status = 400;

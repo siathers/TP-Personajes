@@ -1,7 +1,7 @@
 import { Router } from "express";
 import passport from "passport";
 import Personaje from "../models/personajes.js";
-import { createCharacter, getAllCharacters, updateCharacter } from "../services/personajesService.js";
+import { createCharacter, getAllCharacters, updateCharacter, getCharacterById, deleteCharacterById, filteredCharacters } from "../services/personajesService.js";
 const router= new Router;
 
 router.get('/characters', async(req, res) => {
@@ -9,8 +9,8 @@ router.get('/characters', async(req, res) => {
     res.status(200).send(personajes);
 });
 router.get('/characters/:id', async(req, res) => {
-    
-    if(id>0){
+    let id=req.params.id;
+    if(id>0){   
         const personaje = await getCharacterById(id);
         if (personaje!=null)
         {
@@ -22,22 +22,23 @@ router.get('/characters/:id', async(req, res) => {
         }
     }
     else if(id<=0){
-        res.status(404).send(personaje);
+        res.status(404).send();
     }
-});
-router.post('/characters/:id', async(req, res) => {
-    let status = 201;
+})
+router.post('/characters', async(req, res) => {
+    let status = 20
     const personaje = new Personaje();
     personaje.Nombre = req.body.Nombre;
     personaje.Imagen = req.body.Imagen;
     personaje.Edad = req.body.Edad;
     personaje.Peso = req.body.Peso;
     personaje.Historia = req.body.Historia;
+    personaje.FK_Peliserie = req.body.FK_Peliserie
     const newPersonaje = await createCharacter(personaje);
     if(newPersonaje==null){
         status = 400;
     }
-    res.status(status).send(pizzaCreada);
+    res.status(status).send(newPersonaje);
 
 });
 router.delete('/characters/:id', async(req, res) => {
@@ -78,11 +79,11 @@ router.put("/{id}", async (req, res) =>
 });
 
 router.get ('/characters', async(req, res)=>{
-    const personaje         = new Personaje();
-    personaje.Nombre        = req.query.name;
-    personaje.Edad          = req.query.age;
-    personaje.Peso          = req.query.weight;
-    personaje.IdPelicula    = req.query.idMovie;
+    const personaje = new Personaje();
+    personaje.Nombre = req.query.name;
+    personaje.Edad = req.query.age;
+    personaje.Peso = req.query.weight;
+    personaje.IdPelicula = req.query.idMovie;
     let personajes;
     if(personaje.Nombre || personaje.Edad || personaje.Peso || personaje.IdPelicula){
         personajes = await filteredCharacters(personaje);

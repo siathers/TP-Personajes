@@ -21,13 +21,13 @@ router.get ('/movies', async(req, res)=>{
     else{
         peliseries = await getAllPeliSeries();
     }
-    console.log(peliseries)
+    console.log(peliserie)
     res.status(status).send(peliseries);
 })
 router.get ('/movies/:id', async(req, res)=>{ 
     let status = 200;
-    const id               = req.params.id;
-    const peliserie         = await getPeliSerieById(id);
+    const id = req.params.id;
+    const peliserie = await getPeliSerieById(id);
     if(peliserie == null){
         status = 404;
     }

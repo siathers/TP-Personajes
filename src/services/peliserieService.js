@@ -8,7 +8,7 @@ export const getAllPeliSeries = async () => {
 }
 export const getPeliSerieById = async (id) => {
     const connection = await sql.connect(configDB);
-    const result = await connection.request().input('pId_PeliSerie', sql.Int, id).query('SELECT * FROM PeliSerie PS JOIN Personajexpeliserie pxp On ps.id_peliserie=pxp-fk_peliserie JOIN personaje pj On pj.id_personaje=pxp.fk_personaje Where ps.id_peliserie = @id_peliserie');
+    const result = await connection.request().input('pId_PeliSerie', sql.Int, id).query('SELECT ps.titulo, ps.fecha_creacion, ps.calificacion, pj.nombre  FROM PeliSerie PS JOIN Personajexpeliserie pxp On ps.id_peliserie=pxp.fk_peliserie JOIN personaje pj On pj.id_personaje=pxp.fk_personaje Where ps.Id_peliserie = @pId_PeliSerie');
     return result.recordset;
 }
 export const createPeliSerie = async (peliserie) => {

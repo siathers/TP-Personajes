@@ -1,7 +1,7 @@
 export default class Personaje {
     Id_Personaje;
-    Imagen;
     Nombre;
+    Imagen;
     Edad;
     Peso;
     Historia;

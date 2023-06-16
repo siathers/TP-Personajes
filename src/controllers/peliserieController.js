@@ -7,11 +7,11 @@ const router= new Router
 router.get ('/movies', async(req, res)=>{
     let status = 200;
     const peliserie = new PeliSerie()
-    peliserie.Nombre = req.query.name;
-    peliserie.Orden = req.query.order.toUpperCase();
+    peliserie.Nombre = req.query.Nombre
+    peliserie.Order = req.query.Order.toUpperCase();
     let peliseries;
     if(peliserie.Nombre || peliserie.Orden){
-        if(peliserie.Orden != "ASC" && peliserie.Orden != "DESC"){
+        if(peliserie.Order != "ASC" && peliserie.Order != "DESC"){
             status = 400;
         }
         else{
@@ -21,7 +21,8 @@ router.get ('/movies', async(req, res)=>{
     else{
         peliseries = await getAllPeliSeries();
     }
-    res.status(status).send(peliserie);
+    console.log(peliseries)
+    res.status(status).send(peliseries);
 })
 router.get ('/movies/:id', async(req, res)=>{ 
     let status = 200;

@@ -1,7 +1,7 @@
 const configdb = {
     user: 'alumno',
     password: 'alumno',
-    server: 'A-PHZ2-CIDI-024',
+    server: 'A-PHZ2-CEO-06',
     database: 'TP-Personajes',
     options: {
         trustServerCertificate: true,

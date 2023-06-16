@@ -7,11 +7,9 @@ const router= new Router
 router.get ('/movies', async(req, res)=>{
     let status = 200;
     const peliserie = new PeliSerie()
-    peliserie.Nombre = req.query.Nombre
-    peliserie.Order = req.query.Order.toUpperCase();
     let peliseries;
-    if(peliserie.Nombre || peliserie.Orden){
-        if(peliserie.Order != "ASC" && peliserie.Order != "DESC"){
+    if(req.query.Order || req.query.Nombre){
+        if(req.query.Order != "ASC" && req.query.Order != "DESC"){
             status = 400;
         }
         else{

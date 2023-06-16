@@ -15,12 +15,12 @@ export const getPeliSerieById = async (id) => {
 }
 export const createPeliSerie = async (peliserie) => {
     const connection = await sql.connect(configDB);
-    const result = await connection.request().input('pImagen', sql.string, peliserie.Imagen).input('pTitulo', sql.string, peliserie.Titulo).input('pFechaCreacion', sql.Date, peliserie.FechaCreacion).input('pCalificacion', sql.Int, peliserie.Calificacion).query('INSERT INTO PeliSerie (Imagen, Titulo, FechaCreacion, Calificacion) VALUES (@pImagen, @pTitulo, @pFechaCreacion, @pCalificacion)');
+    const result = await connection.request().input('pImagen', sql.VarChar, peliserie.Imagen).input('pTitulo', sql.VarChar, peliserie.Titulo).input('pFechaCreacion', sql.Date, peliserie.FechaCreacion).input('pCalificacion', sql.Int, peliserie.Calificacion).query('INSERT INTO PeliSerie (Imagen, Titulo, FechaCreacion, Calificacion) VALUES (@pImagen, @pTitulo, @pFechaCreacion, @pCalificacion)');
     return result.recordset;
 }
 export const updatePeliSerie = async (peliserie, id) => {
     const connection = await sql.connect(configDB);
-    const result = await connection.request().input('pImagen', sql.string, peliserie.Imagen).input('pTitulo', sql.string, peliserie.Titulo).input('pFechaCreacion', sql.Date, peliserie.FechaCreacion).input('pCalificacion', sql.Int, peliserie.Calificacion).input(Id_PeliSerie, sql.Int, id).query('UPDATE PeliSerie SET Imagen=@pImagen, Titulo=@pTitulo, FechaCreacion=@pFechaCreacion, Calificacion=@pCalificacion');
+    const result = await connection.request().input('pImagen', sql.VarChar, peliserie.Imagen).input('pTitulo', sql.VarChar, peliserie.Titulo).input('pFechaCreacion', sql.Date, peliserie.FechaCreacion).input('pCalificacion', sql.Int, peliserie.Calificacion).input(Id_PeliSerie, sql.Int, id).query('UPDATE PeliSerie SET Imagen=@pImagen, Titulo=@pTitulo, FechaCreacion=@pFechaCreacion, Calificacion=@pCalificacion');
     return result.recordset;
 }
 export const deletePeliSerieById = async (id) => {

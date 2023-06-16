@@ -1,7 +1,7 @@
 import { Router } from "express";
 import passport from "passport";
 import PeliSerie from "../models/peliserie.js";
-import { createPeliSerie, getAllPeliSeries, updatePeliSerie, getPeliSerieById, deletePeliSerieById} from "../services/peliserieService.js";
+import { createPeliSerie, getAllPeliSeries, updatePeliSerie, getPeliSerieById, deletePeliSerieById, filteredMovies} from "../services/peliserieService.js";
 
 const router= new Router
 router.get ('/movies', async(req, res)=>{

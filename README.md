@@ -7,7 +7,7 @@ ES | [EN](EN_README.md)
 - Postman
 - Npm
   
-## Disclaimer: Este es un repositorio para un trabajo de la escuela y puede o no 
+### Disclaimer: Este es un repositorio para un trabajo de la escuela y puede o no 
 
 ## Correr el Programa
 

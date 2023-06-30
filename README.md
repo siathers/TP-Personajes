@@ -15,7 +15,7 @@ ES | [EN](EN_README.md)
 
 ### Abrir Microsoft SQL Server Management Studio
 
-#### Arrastrar el [archivo](PersonajeDB.sql)
+#### Arrastrar el [archivo](DB\PersonajeDB.sql)
 
 - Apretar Control + O
 - Ir a La carpeta del repositorio 

@@ -19,8 +19,8 @@ ES | [EN](EN_README.md)
 
 #### Si no lo queres hacer asi:
 
-- Apretar Control + O
-- Ir a La carpeta del repositorio
+- Apretar Ctrl + O
+- Ir a La carpeta del repositorio que se llama "TP-Personajes"
 - Seleccionar "PersonajesDB.sql"
 
 ### Ambos: Luego apretar el siguiente boton para crear la base de datos

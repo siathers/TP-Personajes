@@ -1,2 +1,3 @@
-ES | EN(EN_README.md)
-#Personajes API
+ES | [EN](EN_README.md)
+
+# Personajes API

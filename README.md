@@ -24,7 +24,7 @@ ES | [EN](EN_README.md)
 - Seleccionar "PersonajesDB.sql"
 
 ### Ambos: Luego apretar el sigiuente boton para crear la base de datos
-# ![image](https://github.com/siathers/TP-Personajes/assets/105530043/6fe4be5e-ea8a-460d-9bc1-fd6f0ca55046)
+### ![image](https://github.com/siathers/TP-Personajes/assets/105530043/6fe4be5e-ea8a-460d-9bc1-fd6f0ca55046)
 
 
 #### Que deberia verse algo como "C:\Users\Nombre_De_Usuario\TP-Personajes>

@@ -15,7 +15,7 @@ ES | [EN](EN_README.md)
 
 ### Abrir Microsoft SQL Server Management Studio
 
-#### Arrastrar el [archivo](DB)
+#### Arrastrar el siguiente [archivo](DB)
 
 #### Si no lo queres hacer asi:
 
@@ -36,5 +36,7 @@ Con esto deberia aparecer una carpeta llamada "node_modules" y con esto deberias
 Deberias ver lo siguiente 
 
 # ![image](https://github.com/siathers/TP-Personajes/assets/105530043/b12fbd9c-aa95-4869-a9b6-d635f157f0ac)
+
+#
 
 ## Una vez ya corriendo el programa, abrir Postman

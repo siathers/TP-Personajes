@@ -9,3 +9,5 @@ ES | [EN](EN_README.md)
 #### Luego, escribi el siguiente comando: "npm i"
 Con esto deberia aparecer una carpeta llamda "node_modules" y con esto deberias poder ejecutar el programa con
 #### "npm start"
+Deberias ver lo siguiente 
+# ![image](https://github.com/siathers/TP-Personajes/assets/105530043/b12fbd9c-aa95-4869-a9b6-d635f157f0ac)

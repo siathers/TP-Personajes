@@ -39,3 +39,6 @@ Deberias ver lo siguiente
 
 
 ## Una vez ya corriendo el programa, abrir Postman
+
+A la izquierda, vas a ver lo siguiente
+![image](https://github.com/siathers/TP-Personajes/assets/114581621/4fc8f83f-e862-4bc8-ae3a-ee1aa3a2a539)

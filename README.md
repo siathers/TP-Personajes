@@ -42,3 +42,5 @@ Deberias ver lo siguiente
 
 A la izquierda, vas a ver lo siguiente
 #### ![image](https://github.com/siathers/TP-Personajes/assets/114581621/4fc8f83f-e862-4bc8-ae3a-ee1aa3a2a539)
+
+Apretar import donde va a aparecer esto, arrastra [este archivo](personajesCollection.postman_collection)

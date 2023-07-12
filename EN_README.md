@@ -43,12 +43,12 @@ You should see the following
 To the left you will see the following
 #### ![image](https://github.com/siathers/TP-Personajes/assets/114581621/4fc8f83f-e862-4bc8-ae3a-ee1aa3a2a539)
 
-Click on import donde va a aparecer esto, arrastra [este archivo](personajesCollection.postman_collection.json)
+Click on import where this appears and drag [this file](personajesCollection.postman_collection.json)
 
-Dentro de "Personajes Collection" vas a ver varias opciones:
+Inside "Personajes Collection" You will see a few options:
 
-### Get: Te devuelve un JSON del o de los objetos que entren dentro de las categorias que seleccionaste (Se pueden usar filtros rellenando Nombre Edad Peso y/o FK_PeliSerie)
+### Get: Gives you a JSON of the objects that fullfill the criteria (You can also use filters which include Nombre Edad Peso y/o FK_PeliSerie)
 ### ![image](https://github.com/siathers/TP-Personajes/assets/114581621/824b835e-d949-445b-8b31-d430bf0e24c2) 
-### Post: Permite crear uun nuevo objeto (Podes rellenar los campos)
-### Put: Permite modificar un objeto en especifico usando su ID
-### Del Elimina a un objeto por su ID
+### Post: Allows you to create a new object (Replace the gibberish there with what you want to create)
+### Put: In the same fashion as post, this allows you to modify an object by using its ID
+### Del: Self explanatory, deletes a character based on its id

@@ -26,7 +26,7 @@ ES | [EN](EN_README.md)
 ### Ambos: Luego apretar el siguiente boton para crear la base de datos
 ### ![image](https://github.com/siathers/TP-Personajes/assets/105530043/6fe4be5e-ea8a-460d-9bc1-fd6f0ca55046)
 
-
+### Abri el cmd y ve hacia la carpeta de "TP-Personajes"
 #### Que deberia verse algo como "C:\Users\Nombre_De_Usuario\TP-Personajes>
 #### Luego, escribi el siguiente comando: "npm i"
 

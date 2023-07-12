@@ -9,21 +9,21 @@
   
 ### Disclaimer: This is a repository for a school project and may not apply to what you need 
 
-## Correr el Programa
+## Running the program
 
-### Primero descargar el .zip, extraerlo y despues de asegurate de que estes en el directorio de la carpeta
+### Firstly download the .zip file, extract it and make sure that you are in the right folder
 
-### Abrir Microsoft SQL Server Management Studio
+### Open Microsoft SQL Server Management Studio
 
-#### Arrastrar el siguiente [archivo](DB)
+#### Drag the [following file](DB)
 
-#### Si no lo queres hacer asi:
+#### If you dont want to drag it:
 
-- Apretar Ctrl + O
-- Ir a La carpeta del repositorio que se llama "TP-Personajes"
-- Seleccionar "PersonajesDB.sql"
+- Press Ctrl + O
+- Go to the "TP-Personajes" folder
+- Select "PersonajesDB.sql"
 
-### Ambos: Luego apretar el siguiente boton para crear la base de datos
+### For Both: Then press this button
 ### ![image](https://github.com/siathers/TP-Personajes/assets/105530043/6fe4be5e-ea8a-460d-9bc1-fd6f0ca55046)
 
 

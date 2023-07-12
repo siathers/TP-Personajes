@@ -45,4 +45,10 @@ A la izquierda, vas a ver lo siguiente
 
 Apretar import donde va a aparecer esto, arrastra [este archivo](personajesCollection.postman_collection.json)
 
-Dentro de "Personajes Collection" vas a ver varios 
+Dentro de "Personajes Collection" vas a ver varias opciones:
+
+### Get: Te devuelve un JSON del o de los objetos que entren dentro de las categorias que seleccionaste (Se pueden usar filtros rellenando Nombre Edad Peso y/o FK_PeliSerie)
+### ![image](https://github.com/siathers/TP-Personajes/assets/114581621/824b835e-d949-445b-8b31-d430bf0e24c2) 
+### Post: Permite crear uun nuevo objeto (Podes rellenar los campos)
+### Put: Permite modificar un objeto en especifico usando su ID
+### Del Elimina a un objeto por su ID

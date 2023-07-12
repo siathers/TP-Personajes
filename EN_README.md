@@ -26,24 +26,24 @@
 ### For Both: Then press this button
 ### ![image](https://github.com/siathers/TP-Personajes/assets/105530043/6fe4be5e-ea8a-460d-9bc1-fd6f0ca55046)
 
+### Open the cmd and co to the "TP-Personajes" folder
+#### Which should look like "C:\Users\Username\TP-Personajes>
+#### Then run the following command: "npm i"
 
-#### Que deberia verse algo como "C:\Users\Nombre_De_Usuario\TP-Personajes>
-#### Luego, escribi el siguiente comando: "npm i"
-
-Con esto deberia aparecer una carpeta llamada "node_modules" y con esto deberias poder ejecutar el programa con
+With this a folder called node_modules should appear, then you can finally run the program by typing
 #### "npm start"
 
-Deberias ver lo siguiente 
+You should see the following
 
  ![image](https://github.com/siathers/TP-Personajes/assets/105530043/b12fbd9c-aa95-4869-a9b6-d635f157f0ac)
 
 
-## Una vez ya corriendo el programa, abrir Postman
+## Once its running open Postman
 
-A la izquierda, vas a ver lo siguiente
+To the left you will see the following
 #### ![image](https://github.com/siathers/TP-Personajes/assets/114581621/4fc8f83f-e862-4bc8-ae3a-ee1aa3a2a539)
 
-Apretar import donde va a aparecer esto, arrastra [este archivo](personajesCollection.postman_collection.json)
+Click on import donde va a aparecer esto, arrastra [este archivo](personajesCollection.postman_collection.json)
 
 Dentro de "Personajes Collection" vas a ver varias opciones:
 

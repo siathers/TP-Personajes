@@ -1,0 +1,221 @@
+openapi: 3.0.0
+info:
+  title: personajesCollection
+  version: 1.0.0
+paths:
+  /movies:
+    get:
+      summary: Get all movies
+      parameters:
+        - name: Order
+          in: query
+          description: Sort order (ASC or DESC)
+          schema:
+            type: string
+        - name: Nombre
+          in: query
+          description: Filter by movie name
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create a new movie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Imagen:
+                  type: string
+                Titulo:
+                  type: string
+                FechaCreacion:
+                  type: string
+                Calificacion:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+  /movies/{id}:
+    get:
+      summary: Get a movie by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    put:
+      summary: Update a movie by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Imagen:
+                  type: string
+                Titulo:
+                  type: string
+                FechaCreacion:
+                  type: string
+                Calificacion:
+                  type: integer
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      summary: Delete a movie by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  /characters:
+    get:
+      summary: Get all characters
+      parameters:
+        - name: Nombre
+          in: query
+          description: Filter by character name
+          schema:
+            type: string
+        - name: Edad
+          in: query
+          description: Filter by character age
+          schema:
+            type: string
+        - name: Peso
+          in: query
+          description: Filter by character weight
+          schema:
+            type: integer
+        - name: FK_PeliSerie
+          in: query
+          description: Filter by movie/series ID
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create a new character
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Imagen:
+                  type: string
+                Nombre:
+                  type: string
+                Edad:
+                  type: integer
+                Peso:
+                  type: integer
+                Historia:
+                  type: string
+                FK_PeliSerie:
+                  type: integer
+      responses:
+        '200':
+          description: OK
+  /characters/{id}:
+    get:
+      summary: Get a character by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    put:
+      summary: Update a character by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Imagen:
+                  type: string
+                Nombre:
+                  type: string
+                Edad:
+                  type: integer
+                Peso:
+                  type: integer
+                Historia:
+                  type: string
+                FK_PeliSerie:
+                  type: integer
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    delete:
+      summary: Delete a character by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
